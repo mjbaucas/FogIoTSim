@@ -21,6 +21,7 @@ limit = 120
 transmission_time = []
 process_time = []
 
+total_counter = 0
 for i in range(0,3):
     total = 0.0
     total_process = 0.0
@@ -50,7 +51,9 @@ for i in range(0,3):
     transmission_time.append(total/counter)
     print("Average Processor time: " + str(total_process/counter))
     process_time.append(total_process/counter)
+    total_counter+=counter
 
 print("Average Times: " + str(transmission_time))
 print("Average Processor Times: " + str(process_time))
+print("Average Packet Count: " + str(total_counter/3.00))
 
