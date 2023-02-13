@@ -1,4 +1,4 @@
-import socket  
+import socket, sys, time
 from utils import send_msg, recv_msg
  
 host_ip = sys.argv[1]  
@@ -11,11 +11,13 @@ s.bind((host_ip, port))
 s.listen(10)  
 while True:  
     #print('Hello')
+    current = time.time()
     conn, addr = s.accept()  
     print('Connected by', addr)  
     data = recv_msg(conn)
     if not data: 
         break
-    send_msg(conn, data)# Send back the received data intact
+    elapsed = time.time()
+    send_msg(conn, str.encode(str(elapsed-current)))# Send back the received data intact
     print('Received', repr(data))  
     conn.close()

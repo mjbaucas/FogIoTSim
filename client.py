@@ -38,8 +38,9 @@ for i in range(0,3):
         diff_net = end-start
         diff = end-current
         current = end
-        print(total_process)
+        #print(total_process)
         total += diff
+        print(recieved)
         total_process += ((diff - diff_net) + (float(recieved)/1000))
         counter += 1
 
